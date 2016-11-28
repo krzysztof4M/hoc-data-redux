@@ -4,8 +4,7 @@ import React, { Component } from 'react'
 export default class Home extends Component {
   render() {
     return (
-      <h1>Hello, worrthytuyuiujo
-      ddfdfdddd!</h1>
+      <h1>Main page</h1>
     );
   }
 }
