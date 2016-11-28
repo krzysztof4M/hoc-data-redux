@@ -4,7 +4,10 @@ import React, { Component } from 'react'
 export default class App extends Component {
   render() {
     return (
-      <h1>Hello, worldddd!</h1>
+    	<div>
+	      <h1>App component!</h1>
+	      {this.props.children}
+	     </div>
     );
   }
 }
