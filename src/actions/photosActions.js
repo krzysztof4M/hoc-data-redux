@@ -14,7 +14,7 @@ function photosRequestError(err) {
   }
 }
 
-function requestExpenditures () {
+function photosRequest () {
   return {
     type: 'PHOTOS_REQUEST_PENDING'
   }
@@ -22,13 +22,13 @@ function requestExpenditures () {
 
 export function getPhotos() {
   return function(dispatch) {
-    dispatch(requestExpenditures())
+    dispatch(photosRequest())
       axios.get('https://jsonplaceholder.typicode.com/photos')
       .then((response) => {
-        dispatch(expendituresRequestSuccess(response))
+        dispatch(photosRequestSuccess(response))
       })
       .catch((err) => {
-        dispatch(expendituresRequestError(err))
+        dispatch(photosRequestError(err))
       })
   }
 }
