@@ -21,6 +21,7 @@ function photosRequest () {
 }
 
 export function getPhotos() {
+	console.log('getPhotos')
   return function(dispatch) {
     dispatch(photosRequest())
       axios.get('https://jsonplaceholder.typicode.com/photos')

@@ -21,7 +21,9 @@ function todosRequest () {
 }
 
 export function getTodos() {
-  return function(dispatch) {
+	console.log('getTodos')
+  return dispatch => {
+  	console.log('getTodos2', dispatch)
     dispatch(todosRequest())
       axios.get('https://jsonplaceholder.typicode.com/todos')
       .then((response) => {
