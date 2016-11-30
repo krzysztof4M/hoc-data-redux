@@ -53,7 +53,6 @@
 // export default FetchData
 
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Loader from '../components/Loader'
 import _ from 'lodash'
 
@@ -70,12 +69,11 @@ const FetchData = (ComposedComponent) => {
 
     fetchData(){
       const that = this;
-      console.log(this.props)
-      
 
       Promise.all(
-        [this.props.getPhotos(),
-      this.props.getTodos()]
+        Object.keys(this.props)
+          .filter(element => _.isFunction(this.props[element]))
+          .map(element => this.props[element]())
       )
       .then(() => {
         console.log('I did everything!', new Date().getTime());
@@ -97,7 +95,7 @@ const FetchData = (ComposedComponent) => {
       );
     }
   }
-  return connect()(FetchData)
+  return FetchData
 }
 
 export default FetchData

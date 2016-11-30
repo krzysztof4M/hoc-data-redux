@@ -20,10 +20,4 @@ function mapStateToProps(state){
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Object.assign({}, getTodos, getPhotos), dispatch)
-  }
-}
-
-export default connect(mapStateToProps,{getTodos,getPhotos})(requireData(Todos))
+export default connect(null,{getTodos,getPhotos})(requireData(Todos))
