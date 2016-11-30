@@ -25,7 +25,6 @@ export function getPhotos() {
   	dispatch(photosRequest())
     return axios.get('https://jsonplaceholder.typicode.com/photos')
     .then((response) => {
-    	console.log(response)
     	console.log('photos',new Date().getTime())
       dispatch(photosRequestSuccess(response))
     })
