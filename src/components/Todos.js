@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import requireData from '../utils/requireData'
 import {getTodos} from '../actions/todosActions'
 import {getPhotos} from '../actions/photosActions'
+import {getUsers} from '../actions/usersActions'
 
 class Todos extends Component {
   render() {
@@ -15,8 +16,9 @@ class Todos extends Component {
 function mapStateToProps(state){
 	return {
 		todos: state.todos,
-		photos: state.photos
+		photos: state.photos,
+		users: state.users
 	}
 }
 
-export default connect(null,{getTodos,getPhotos})(requireData(connect(mapStateToProps)(Todos)))
+export default connect(null,{getTodos,getPhotos,getUsers})(requireData(connect(mapStateToProps)(Todos)))

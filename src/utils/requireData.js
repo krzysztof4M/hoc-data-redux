@@ -84,7 +84,7 @@ const FetchData = (ComposedComponent) => {
     displayContent(){
       const {isLoading} = this.state
       console.log('displayContnent',isLoading)
-      let content = isLoading ? <Loader /> : <ComposedComponent />
+      let content = isLoading ? <Loader /> : <ComposedComponent {...this.props}/>
       return content
     }
     render() {

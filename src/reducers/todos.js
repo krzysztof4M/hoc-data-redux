@@ -1,9 +1,8 @@
 export default (state = [], action = {}) => {
   switch(action.type) {
     case 'TODOS_REQUEST_SUCCESS':
-      return {
-        data: action.payload.data,
-      }
+      return action.payload;
+
     case 'TODOS_REQUEST_ERROR':
       return state;
 

@@ -1,10 +1,9 @@
-import "babel-polyfill";
 import axios from 'axios';
 
 function todosRequestSuccess(response) {
   return {
     type: 'TODOS_REQUEST_SUCCESS',
-    payload: response
+    payload: response.data
   }
 }
 
@@ -19,10 +18,6 @@ function todosRequest () {
   return {
     type: 'TODOS_REQUEST_PENDING'
   }
-}
-
-function fetchTodos() {
-	return axios.get('https://jsonplaceholder.typicode.com/todos')
 }
 
 export function getTodos() {

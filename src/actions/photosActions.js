@@ -3,7 +3,7 @@ import axios from 'axios';
 function photosRequestSuccess(response) {
   return {
     type: 'PHOTOS_REQUEST_SUCCESS',
-    payload: response
+    payload: response.data
   }
 }
 
@@ -20,15 +20,12 @@ function photosRequest () {
   }
 }
 
-function fetchPhotos() {
-	return axios.get('https://jsonplaceholder.typicode.com/photos')
-}
-
 export function getPhotos() {
   return function(dispatch) {
   	dispatch(photosRequest())
     return axios.get('https://jsonplaceholder.typicode.com/photos')
     .then((response) => {
+    	console.log(response)
     	console.log('photos',new Date().getTime())
       dispatch(photosRequestSuccess(response))
     })
