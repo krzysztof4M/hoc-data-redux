@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from'redux'
 import requireData from '../utils/requireData'
 import {getTodos} from '../actions/todosActions'
 import {getPhotos} from '../actions/photosActions'
@@ -20,4 +19,4 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(null,{getTodos,getPhotos})(requireData(Todos))
+export default connect(null,{getTodos,getPhotos})(requireData(connect(mapStateToProps)(Todos)))
