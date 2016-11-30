@@ -6,7 +6,7 @@ var APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
+  entry: ['babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     APP_DIR + '/index'

@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import axios from 'axios';
 
 function todosRequestSuccess(response) {
@@ -20,17 +21,21 @@ function todosRequest () {
   }
 }
 
+function fetchTodos() {
+	return axios.get('https://jsonplaceholder.typicode.com/todos')
+}
+
 export function getTodos() {
-	console.log('getTodos')
-  return dispatch => {
-  	console.log('getTodos2', dispatch)
+  return function(dispatch){
     dispatch(todosRequest())
-      axios.get('https://jsonplaceholder.typicode.com/todos')
-      .then((response) => {
-        dispatch(todosRequestSuccess(response))
-      })
-      .catch((err) => {
-        dispatch(todosRequestError(err))
-      })
+    return axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(
+    	(response) => {
+    	console.log('todos', new Date().getTime())
+      dispatch(todosRequestSuccess(response))
+    })
+    .catch((err) => {
+      dispatch(todosRequestError(err))
+    })
   }
 }

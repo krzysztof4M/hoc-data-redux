@@ -20,16 +20,20 @@ function photosRequest () {
   }
 }
 
+function fetchPhotos() {
+	return axios.get('https://jsonplaceholder.typicode.com/photos')
+}
+
 export function getPhotos() {
-	console.log('getPhotos')
   return function(dispatch) {
-    dispatch(photosRequest())
-      axios.get('https://jsonplaceholder.typicode.com/photos')
-      .then((response) => {
-        dispatch(photosRequestSuccess(response))
-      })
-      .catch((err) => {
-        dispatch(photosRequestError(err))
-      })
+  	dispatch(photosRequest())
+    return axios.get('https://jsonplaceholder.typicode.com/photos')
+    .then((response) => {
+    	console.log('photos',new Date().getTime())
+      dispatch(photosRequestSuccess(response))
+    })
+    .catch((err) => {
+      dispatch(photosRequestError(err))
+    })
   }
 }
